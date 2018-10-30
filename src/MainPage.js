@@ -6,6 +6,7 @@ class MainPage extends Component {
       <div className='header'>
         <h2>Nom-Nom Finder</h2>
       </div>
+      // TODO: Display map, listings etc.
     )
   }
 }

@@ -8,6 +8,8 @@ class App extends Component {
         <header className="App-header">
         </header>
       </div>
+      // TODO: Create a full-screen map that displays markers for restaurants
+      // near the UT Tyler campus. 
     );
   }
 }

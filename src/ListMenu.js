@@ -5,7 +5,11 @@ class ListMenu extends Component {
     return (
       <div className='list'>
         <ol className='listings'>
-          <li></li>
+          <li>
+            {/* TODO: List restaurants and their corresponding info. Map markers must be animated
+                when clicked. Must have filter option here <FilterListing />
+             */}
+          </li>
         </ol>
       </div>
     )
