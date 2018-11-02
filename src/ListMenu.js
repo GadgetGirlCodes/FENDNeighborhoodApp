@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import Listing from './Listing';
 
 class ListMenu extends Component {
   render() {
