@@ -1,0 +1,32 @@
+{"locations":[
+  {
+    "name": "Republic Icehouse",
+    "type": "Bar",
+    "url": "",
+    "pos":{"lat":32.311603,"lng":-95.251591}
+  },
+  {
+    "name": "Sushi Guy",
+    "type": "Asian",
+    "url": "",
+    "pos":{"lat":32.311919,"lng":-95.249816}
+  },
+  {
+    "name": "UT Donut & Taco",
+    "type": "",
+    "url": "",
+    "pos":{"lat":,"lng":}
+  },
+  {
+    "name": "Subway",
+    "type": "Fast Food",
+    "url": "",
+    "pos":{"lat":32.315745,"lng":-95.254231}
+  },
+  {
+    "name": "Chick-Fil-A",
+    "type": "Fast Food",
+    "url": "",
+    "pos":{"lat":32.315789,"lng":-95.251345}
+  }
+]}

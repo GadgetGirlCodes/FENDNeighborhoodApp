@@ -18,9 +18,17 @@
   color: #d6d3f0;
 }
 
+/* Map Container */
+.mapContainer {
+  width: 100vw;
+  height: calc(100vh - 25px);
+  display: flex;
+  
+}
+
 /* List Style */
 .listMenu {
-  height: 100vh;
+  height: calc(100vh - 25px);
   width: 325px;
   max-width: 100vw;
   background-color: rgba(214,211,240, 0.2);
