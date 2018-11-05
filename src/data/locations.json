@@ -2,31 +2,31 @@
   {
     "name": "Republic Icehouse",
     "type": "Bar",
-    "url": "",
+    "url": "http://www.republicicehouse.com/",
     "pos":{"lat":32.311603,"lng":-95.251591}
   },
   {
     "name": "Sushi Guy",
     "type": "Asian",
-    "url": "",
+    "url": "https://sushiguyco.com/",
     "pos":{"lat":32.311919,"lng":-95.249816}
   },
   {
     "name": "UT Donut & Taco",
-    "type": "",
-    "url": "",
-    "pos":{"lat":,"lng":}
+    "type": "Donut Mexican Asian",
+    "url": "https://www.facebook.com/UTTDonutsandTacos/",
+    "pos":{"lat":32.311822,"lng":-95.250646}
   },
   {
     "name": "Subway",
     "type": "Fast Food",
-    "url": "",
+    "url": "https://www.subway.com",
     "pos":{"lat":32.315745,"lng":-95.254231}
   },
   {
     "name": "Chick-Fil-A",
     "type": "Fast Food",
-    "url": "",
+    "url": "https://www.chick-fil-a.com",
     "pos":{"lat":32.315789,"lng":-95.251345}
   }
 ]}
