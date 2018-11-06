@@ -46,7 +46,7 @@ class MapContainer extends Component {
     this.state.markers.forEach(marker => marker.setMap(null));
 
     let markerProps = [];
-    let markers = locations.map((location, index) => {
+    let markers = locations.locations.map((location, index) => {
       let mProps = {
         key: index,
         index,
