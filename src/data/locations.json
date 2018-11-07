@@ -28,5 +28,48 @@
     "type": "Fast Food",
     "url": "https://www.chick-fil-a.com",
     "pos":{"lat":32.315789,"lng":-95.251345}
+  },
+  {
+    "name": "Jucy's Hamburgers",
+    "type": "Burgers",
+    "url": "http://www.jucyshamburgers.com/",
+    "pos":{"lat":32.332667,"lng":-95.271414}
+  },
+  {
+    "name": "Oliveto Italian Bistro",
+    "type": "Italian",
+    "url": "http://www.olivetobistro.com/",
+    "pos":{"lat":32.308994,"lng":-95.273954}
+  },
+  {
+    "name": "Happy's Fish House",
+    "type": "Seafood",
+    "url": "http://happysfishhouse.com/",
+    "pos":{"lat":32.332759,"lng":-95.27379}
+  },
+  {
+    "name": "Mama's Restaurant",
+    "type": "Mexican",
+    "url": "https://www.facebook.com/Mamas-restaurant-217906481566848/",
+    "pos":{"lat":32.331953,"lng":-95.274889}
+  },
+  {
+    "name": "Taqueria El Lugar",
+    "type": "Mexican",
+    "url": "",
+    "pos":{"lat":32.331826,"lng":-95.273403}
+  },
+  {
+    "name": "Poch's Rice Cafe",
+    "type": "Asian",
+    "url": "https://www.facebook.com/pochsricecafe/?hc_ref=ARTGtprFdgJOLjq7r5gUciOOB9EgZAhrEwOYp2fRKrsPaonph5wqS-viZ2aoshlTuCs",
+    "pos":{"lat":32.330639,"lng":-95.265122}
   }
 ]}
+  // ,
+  // {
+  //   "name": "",
+  //   "type": "",
+  //   "url": "",
+  //   "pos":{"lat":,"lng":}
+  // }
