@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { Map, InfoWindow, GoogleApiWrapper } from 'google-maps-react';
 
-const YELP_KEY = 'nURSXAKqkUMPdntGky6KItOf0vSFaLnwcaN-w7MPeI5543g1OtE6dVSA_tXWRMwZaSUzNuzeyGIfT_gsINuzE_9_HO8B__a3-cvcVUNrWgOLH2yX0FvC8q3ECcnXW3Yx'
-const YELP_CLI_ID = 'MERJI2mNZ3vK030FjnC23Q'
+const FS_CLI_ID = 'NL5Q1XELXMBMWNAOVAKEU05ZVT1NZCEXSIYTZPBKQJBGZFHL'
+const FS_CLI_SECRET = '4MUJWRMJDWMM0JKE0XYT5OO42DSGOT5GOGQJ0EJEZK2FYUAQ'
+const FS_VERSION = '20181101'
 
 
 class MapContainer extends Component {
@@ -33,9 +34,12 @@ class MapContainer extends Component {
     this.setState({ showingInfoWindow: false, activeMarker: null, activeMarkerProps: null });
   }
 
-  getBusinessInfo = (props, marker) => {
+  getBusinessInfo = (props, data) => {
     // Look for matching data in Yelp compared to locations.json
-    return data.response.businesses.filter(item => item.name.includes(props.name) || props.name.includes(item.name))
+    return data
+      .response
+      .venues
+      .filter(item => item.name.includes(props.name) || props.name.includes(item.name))
   }
 
   onMarkerClick = (props, marker, e) => {
@@ -43,29 +47,27 @@ class MapContainer extends Component {
     this.closeInfoWindow();
 
     // Fetch Yelp info for selected marker
-    let url = `https://api.yelp.com/v3/businesses/search?radius=1000&latitude=${props.position.lat}&longitude=${props.position.lng}`
-    let headers = new Headers({
-        Authorization: `Bearer ${YELP_KEY}`
-      });
+    let url = `https://api.foursquare.com/v2/venues/search?client_id=${FS_CLI_ID}&client_secret=${FS_CLI_SECRET}&v=${FS_VERSION}&ll=${props.position.lat},${props.position.lng}&radius=100`
+    let headers = new Headers();
     let request = new Request(url, {
       method: 'GET',
       headers 
-    })
+    });
 
     // Create props for the active marker
     let activeMarkerProps;
     fetch(request).then(response => response.json())
       .then(result => {
-        let businesses = this.getBusinessInfo(props, result);
+        let restaurant = this.getBusinessInfo(props, result);
         activeMarkerProps = {
           ...props,
-          yelp: businesses[0]
+          foursquare: restaurant[0]
         };
-      })
+      });
 
     // Get images for restaurant and set state
-    if (activeMarkerProps.yelp) {
-      let url = `https://api.yelp.com/v3/businesses/${businesses[0].id}?photos=${businesses[0].photos}`
+    if (activeMarkerProps.foursquare) {
+      let url = `https://api.foursquare.com/v2/venues/${restaurant[0].id}/photos=${restaurant[0].photos}`
       fetch(url)
         .then(response => response.json())
         .then(result => {
