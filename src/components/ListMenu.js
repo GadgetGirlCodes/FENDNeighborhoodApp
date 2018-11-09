@@ -7,8 +7,6 @@ class ListMenu extends Component {
     query: ""
   }
 
- 
-
   updateQuery = (newQuery) => {
     this.setState({ query: newQuery });
     this.props.filterLocations(newQuery);
@@ -28,13 +26,12 @@ class ListMenu extends Component {
             {this.props.locations && this.props.locations.map((location, index) => {
               return (
                 <li className='listing' key={index}>
-                  <button key={index}>{location.name}</button>
+                  <button key={index} onClick={() => this.props.clickListItem(index)}>{location.name}</button>
                 </li>
               )
             })}
           </ul>
         </section>
-
       </Drawer>
     )
   }

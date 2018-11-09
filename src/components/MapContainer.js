@@ -16,8 +16,33 @@ class MapContainer extends Component {
     showingInfoWindow: false
   }
 
-  componentDidMount = () => {
+  componentDidMount = () => { }
 
+  compontentWillReceiveProps = (props) => {
+    this.setState({ firstDrop: false });
+
+    // if filtered, update markers
+    if (this.state.markers.length !== props.locations.length) {
+          this.closeInfoWindow();
+          this.updateMarkers(props.locations);
+          this.setState({activeMarker: null});
+
+        return;
+      }
+
+    // if selected item is not open window, close window
+    if (!props.selectedIndex || (this.state.activeMarker &&
+      (this.state.markers[props.selectedIndex] !== this.state.activeMarker))) {
+      this.closeInfoWindow();
+    }
+
+    // check for selectedIndex
+    if (props.selectedIndex === null || typeof(props.selectedIndex) === "undefined") {
+      return;
+    };
+
+    // treat marker as clicked when list item is clicked
+    this.onMarkerClick(this.state.markerProps[props.selectedIndex], this.state.markers[props.selectedIndex]);
   }
 
   mapReady = (props, map) => {
@@ -43,7 +68,7 @@ class MapContainer extends Component {
   }
 
   onMarkerClick = (props, marker, e) => {
-    // Closes open info windos
+    // Closes open info windows
     this.closeInfoWindow();
 
     // Fetch FourSquare info for selected marker

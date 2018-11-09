@@ -15,6 +15,8 @@ class App extends Component {
     lng: -95.249268,
     zoom: 14,
     all: locations,
+    filtered: null,
+    selectedIndex: null,
     open: false
   }
 
@@ -50,7 +52,13 @@ class App extends Component {
   }
 
   filterLocations = (locations, query) => {
+    // filter locations to match query
     return locations.filter(location => location.name.toLowerCase().includes(query.toLowerCase()));
+  }
+
+  clickListItem = (index) => {
+    // set state to selected locations array index
+    this.setState({ selectedIndex: index, open: !this.state.open })
   }
 
   render() {
@@ -65,13 +73,16 @@ class App extends Component {
           lat={this.state.lat}
           lng={this.state.lng}
           zoom={this.state.zoom}
-          locations={this.state.filtered} />
+          locations={this.state.filtered}
+          selectedIndex={this.state.selectedIndex} />
         <ListMenu
           className="listMenu"
           locations={this.state.filtered}
           open={this.state.open}
           toggleMenu={this.toggleMenu}
-          filterLocations={this.updateQuery} />
+          filterLocations={this.updateQuery}
+          clickListItem={this.clickListItem}
+          selectedIndex={this.state.selectedIndex} />
       </div>
     );
   }
