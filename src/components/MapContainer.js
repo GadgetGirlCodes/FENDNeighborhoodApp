@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Map, InfoWindow, GoogleApiWrapper } from 'google-maps-react';
+import NoMapDisplay from './NoMapDisplay'
 
 const FS_CLI_ID = 'NL5Q1XELXMBMWNAOVAKEU05ZVT1NZCEXSIYTZPBKQJBGZFHL'
 const FS_CLI_SECRET = '4MUJWRMJDWMM0JKE0XYT5OO42DSGOT5GOGQJ0EJEZK2FYUAQ'
@@ -189,5 +190,5 @@ class MapContainer extends Component {
 }
 
 export default GoogleApiWrapper({
-  apiKey: "AIzaSyCxXK6lMDoTo4dHosssdE0SyJ8UtVOtpbU"
+  apiKey: "AIzaSyCxXK6lMDoTo4dHosssdE0SyJ8UtVOtpbU", LoadingContainer: NoMapDisplay
 })(MapContainer)
