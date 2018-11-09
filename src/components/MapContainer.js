@@ -80,12 +80,12 @@ class MapContainer extends Component {
           // Sets Animation on active marker
           marker.setAnimation(this.props.google.maps.Animation.BOUNCE);
           // Sets state to show info window            
-          this.setState({ showingInfoWindow: true, activeMarker: marker, activeMarkerProps: props })
+          this.setState({ showingInfoWindow: true, activeMarker: marker, activeMarkerProps })
         })
     } else {
       // Sets animation and state if there are no photos
         marker.setAnimation(this.props.google.maps.Animation.BOUNCE);
-        this.setState({ showingInfoWindow: true, activeMarker: marker, activeMarkerProps: props })
+        this.setState({ showingInfoWindow: true, activeMarker: marker, activeMarkerProps })
     }
   })
 };
