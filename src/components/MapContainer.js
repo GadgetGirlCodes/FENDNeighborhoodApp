@@ -46,8 +46,8 @@ class MapContainer extends Component {
     // Closes open info windos
     this.closeInfoWindow();
 
-    // Fetch Yelp info for selected marker
-    let url = `https://api.foursquare.com/v2/venues/search?client_id=${FS_CLI_ID}&client_secret=${FS_CLI_SECRET}&v=${FS_VERSION}&ll=${props.position.lat},${props.position.lng}&radius=100`
+    // Fetch FourSquare info for selected marker
+    let url = `https://api.foursquare.com/v2/venues/search?client_id=${FS_CLI_ID}&client_secret=${FS_CLI_SECRET}&v=${FS_VERSION}&radius=100&ll=${props.position.lat},${props.position.lng}`
     let headers = new Headers();
     let request = new Request(url, {
       method: 'GET',
@@ -62,12 +62,11 @@ class MapContainer extends Component {
         activeMarkerProps = {
           ...props,
           foursquare: restaurant[0]
-        };
-      });
+        }
 
     // Get images for restaurant and set state
     if (activeMarkerProps.foursquare) {
-      let url = `https://api.foursquare.com/v2/venues/${restaurant[0].id}/photos=${restaurant[0].photos}`
+      let url = `https://api.foursquare.com/v2/venues/${restaurant[0].id}/photos?client_id=${FS_CLI_ID}&client_secret=${FS_CLI_SECRET}&v=${FS_VERSION}`
       fetch(url)
         .then(response => response.json())
         .then(result => {
@@ -84,11 +83,12 @@ class MapContainer extends Component {
           this.setState({ showingInfoWindow: true, activeMarker: marker, activeMarkerProps: props })
         })
     } else {
-      // Sets animation if there are no photos
+      // Sets animation and state if there are no photos
         marker.setAnimation(this.props.google.maps.Animation.BOUNCE);
         this.setState({ showingInfoWindow: true, activeMarker: marker, activeMarkerProps: props })
     }
-  }
+  })
+};
 
   updateMarkers = (locations) => {
     // Prevent error for empty location array
@@ -147,6 +147,13 @@ class MapContainer extends Component {
             <h3>{amProps && amProps.name}</h3>
             {amProps && amProps.url ? (
               <a href={amProps.url} target="_blank">See Website</a>
+            ) : ""}
+            {amProps && amProps.images ? (
+              <div><img
+                alt={amProps.name + " picture"}
+                src={amProps.images.items[0].prefix + "100x100" + amProps.images.items[0].suffix} />
+                <p>Image provided by FourSquare</p>
+              </div>
             ) : ""}
           </div>
         </InfoWindow>
