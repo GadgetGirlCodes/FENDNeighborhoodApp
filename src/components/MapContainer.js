@@ -51,7 +51,7 @@ class MapContainer extends Component {
     let headers = new Headers();
     let request = new Request(url, {
       method: 'GET',
-      headers 
+      headers
     });
 
     // Create props for the active marker
@@ -64,31 +64,31 @@ class MapContainer extends Component {
           foursquare: restaurant[0]
         }
 
-    // Get images for restaurant and set state
-    if (activeMarkerProps.foursquare) {
-      let url = `https://api.foursquare.com/v2/venues/${restaurant[0].id}/photos?client_id=${FS_CLI_ID}&client_secret=${FS_CLI_SECRET}&v=${FS_VERSION}`
-      fetch(url)
-        .then(response => response.json())
-        .then(result => {
-          activeMarkerProps = {
-            ...activeMarkerProps,
-            images: result.response.photos
-          };
-          if (this.state.activeMarker)
-            // Removes any current animation
-            this.state.activeMarker.setAnimation(null);
-          // Sets Animation on active marker
+        // Get images for restaurant and set state
+        if (activeMarkerProps.foursquare) {
+          let url = `https://api.foursquare.com/v2/venues/${restaurant[0].id}/photos?client_id=${FS_CLI_ID}&client_secret=${FS_CLI_SECRET}&v=${FS_VERSION}`
+          fetch(url)
+            .then(response => response.json())
+            .then(result => {
+              activeMarkerProps = {
+                ...activeMarkerProps,
+                images: result.response.photos
+              };
+              if (this.state.activeMarker)
+                // Removes any current animation
+                this.state.activeMarker.setAnimation(null);
+              // Sets Animation on active marker
+              marker.setAnimation(this.props.google.maps.Animation.BOUNCE);
+              // Sets state to show info window            
+              this.setState({ showingInfoWindow: true, activeMarker: marker, activeMarkerProps })
+            })
+        } else {
+          // Sets animation and state if there are no photos
           marker.setAnimation(this.props.google.maps.Animation.BOUNCE);
-          // Sets state to show info window            
           this.setState({ showingInfoWindow: true, activeMarker: marker, activeMarkerProps })
-        })
-    } else {
-      // Sets animation and state if there are no photos
-        marker.setAnimation(this.props.google.maps.Animation.BOUNCE);
-        this.setState({ showingInfoWindow: true, activeMarker: marker, activeMarkerProps })
-    }
-  })
-};
+        }
+      })
+  };
 
   updateMarkers = (locations) => {
     // Prevent error for empty location array
@@ -98,7 +98,7 @@ class MapContainer extends Component {
     this.state.markers.forEach(marker => marker.setMap(null));
 
     let markerProps = [];
-    let markers = locations.locations.map((location, index) => {
+    let markers = locations.map((location, index) => {
       let mProps = {
         key: index,
         index,
