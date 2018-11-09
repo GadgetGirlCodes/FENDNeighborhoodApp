@@ -1,6 +1,6 @@
 {"locations":[
   {
-    "name": "Republic Icehouse",
+    "name": "Republic Ice House",
     "type": "Bar",
     "url": "http://www.republicicehouse.com/",
     "pos":{"lat":32.311603,"lng":-95.251591}
@@ -66,10 +66,3 @@
     "pos":{"lat":32.330639,"lng":-95.265122}
   }
 ]}
-  // ,
-  // {
-  //   "name": "",
-  //   "type": "",
-  //   "url": "",
-  //   "pos":{"lat":,"lng":}
-  // }
