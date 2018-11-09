@@ -1,23 +1,44 @@
 import React, { Component } from 'react';
-import Listing from './Listing';
+import Drawer from '@material-ui/core/Drawer';
 
 class ListMenu extends Component {
+  state = {
+    open: false,
+    query: ""
+  }
+
+ 
+
+  updateQuery = (newQuery) => {
+    this.setState({ query: newQuery });
+    this.props.filterLocations(newQuery);
+  }
+
   render() {
     return (
-      <section className='listMenu'>
-      <h3 aria-label="Close" tabIndex="0">X</h3>
-        <ol className='list'>
-          <li>
-            <Listing
-              className='listing'
-              tabIndex='0' />
-            
-            {/* TODO: List restaurants and their corresponding info. Map markers must be animated
-                when clicked. Must have filter option here <FilterListing />
-             */}
-          </li>
-        </ol>
-      </section>
+      <Drawer open={this.props.open} onClose={this.props.toggleMenu}>
+        <section className="listMenu">
+          <nav>
+            <h3 className='closeMenu' aria-label="Close" tabIndex="0">X</h3>
+            <input
+              className='filter'
+              type='text'
+              placeholder='Filter Listings'
+              onChange={e => this.updateQuery(e.target.value)}
+              value={this.state.query} />
+          </nav>
+          <ul className='list'>
+            {this.props.locations && this.props.locations.map((location, index) => {
+              return (
+                <li className='listing' key={index}>
+                  <button key={index}>{location.name}</button>
+                </li>
+              )
+            })}
+          </ul>
+        </section>
+
+      </Drawer>
     )
   }
 }
