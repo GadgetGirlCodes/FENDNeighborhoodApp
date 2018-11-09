@@ -18,7 +18,7 @@ class MapContainer extends Component {
 
   componentDidMount = () => { }
 
-  compontentWillReceiveProps = (props) => {
+  componentWillReceiveProps = (props) => {
     this.setState({ firstDrop: false });
 
     // if filtered, update markers
@@ -31,8 +31,7 @@ class MapContainer extends Component {
       }
 
     // if selected item is not open window, close window
-    if (!props.selectedIndex || (this.state.activeMarker &&
-      (this.state.markers[props.selectedIndex] !== this.state.activeMarker))) {
+    if (!props.selectedIndex || (this.state.activeMarker && (this.state.markers[props.selectedIndex] !== this.state.activeMarker))) {
       this.closeInfoWindow();
     }
 
