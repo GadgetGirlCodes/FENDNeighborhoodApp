@@ -11,8 +11,8 @@ library.add(faBars)
 
 class App extends Component {
   state = {
-    lat: 32.316652,
-    lng: -95.249268,
+    lat: 32.322613,
+    lng: -95.262592,
     zoom: 14,
     all: locations,
     filtered: null,
