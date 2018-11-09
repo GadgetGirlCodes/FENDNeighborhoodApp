@@ -183,8 +183,6 @@ class MapContainer extends Component {
           </div>
         </InfoWindow>
       </Map>
-      // TODO: Display full screen map. All location markers must show by default,
-      // and must filter. Markers must be clickable and show info when clicked. 
     )
   }
 }
