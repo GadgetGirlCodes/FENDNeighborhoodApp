@@ -18,15 +18,12 @@ class ListMenu extends Component {
     return (
       <Drawer open={this.props.open} onClose={this.props.toggleMenu}>
         <section className="listMenu">
-          <nav>
-            <h3 className='closeMenu' aria-label="Close" tabIndex="0">X</h3>
-            <input
-              className='filter'
-              type='text'
-              placeholder='Filter Listings'
-              onChange={e => this.updateQuery(e.target.value)}
-              value={this.state.query} />
-          </nav>
+          <input
+            className='filter'
+            type='text'
+            placeholder='Filter Listings'
+            onChange={e => this.updateQuery(e.target.value)}
+            value={this.state.query} />
           <ul className='list'>
             {this.props.locations && this.props.locations.map((location, index) => {
               return (
