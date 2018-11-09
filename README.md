@@ -29,6 +29,11 @@ This project wouldn't have been possible without the fantastic help of Doug Brow
 Photos are provided via the [FourSquare](http://www.foursquare.com) Places API.
 Map is provided via the [Google](http://maps.google.com) Maps API.
 
+The following libraries were also used in development:
+	* [Material-UI](https://material-ui.com/)
+	* [Google-maps-react](https://github.com/fullstackreact/google-maps-react)
+	* [React-fontawesome](https://www.npmjs.com/package/@fortawesome/react-fontawesome)
+
 ## Contributing
 
 This repository was created solely for the purpose of completing Udacity's Front End Nanodegree Program. Pull requests are welcome, but may not be accepted.
